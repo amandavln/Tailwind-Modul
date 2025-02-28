@@ -1,0 +1,13 @@
+.box {
+    background: rgb(154, 214, 249);
+    height: 200px;
+    width: 300px;
+    margin: 20px;
+}
+
+.box-dua {
+    background: rgb(221, 236, 248);
+    height: 100px;
+    width: 200px;
+    margin-left: 70px;
+}

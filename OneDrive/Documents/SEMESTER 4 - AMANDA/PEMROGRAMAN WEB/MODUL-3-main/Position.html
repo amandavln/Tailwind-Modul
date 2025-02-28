@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Position dalam CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            border: 2px solid black;
+            padding: 20px;
+            position: relative; /* Induk untuk elemen absolute */
+            height: 300px;
+            margin-bottom: 30px;
+        }
+
+        /* STATIC */
+        .static {
+            position: static;
+            background-color: lightgray;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        
+        /* RELATIVE */
+        .relative {
+            position: relative;
+            background-color: lightblue;
+            padding: 10px;
+            left: 20px;
+            top: 10px;
+        }
+
+        /* ABSOLUTE */
+        .absolute {
+            position: absolute;
+            background-color: lightcoral;
+            padding: 10px;
+            right: 10px;
+            top: 10px;
+        }
+        
+        /* FIXED */
+        .fixed {
+            position: fixed;
+            background-color: lightgreen;
+            padding: 10px;
+            bottom: 10px;
+            right: 10px;
+        }
+        
+        /* STICKY */
+        .sticky {
+            position: sticky;
+            background-color: orange;
+            padding: 10px;
+            top: 0;
+        }
+        
+        .spacer {
+        height: 800px; /* Untuk memberikan efek scroll */  
+    }
+    </style>
+</head>
+<body>
+    
+    <h2>Contoh CSS Position</h2>
+    
+    <div class="static">Ini adalah elemen dengan posisi <b>static</b> (default).</div>
+    
+    <div class="relative">Ini adalah elemen dengan posisi <b>relative</b> (bergeser dari posisi awalnya).</div>
+    
+    <div class="container">
+        <div class="absolute">Ini adalah elemen dengan posisi <b>absolute</b> (di dalam container).</div>
+        <p>Container ini memiliki <b>position: relative</b>, jadi elemen absolute berada di dalamnya.</p>
+    </div>
+    
+    <div class="sticky">Ini adalah elemen dengan posisi <b>sticky</b> (akan tetap di atas saat discroll).</div>
+    
+    <div class="spacer"></div>
+    
+    <div class="fixed">Ini adalah elemen dengan posisi <b>fixed</b> (tetap di sudut bawah).</div>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+}
+
+.box {
+    background: rgb(152, 211, 246);
+    height: 200px;
+    width: 300px;
+    padding: 20px;
+}
+
+.box-dua {
+    background: rgb(217, 235, 246);
+    height: 100px;
+    width: 600px;
+    padding-left: 70px;
+}
