@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend : {
+
+                spacing: {
+                    13: '3.25rem'
+                },
+                fontFamily: {
+                    inter: ['Inter']
+                },
+                colors: {
+                    wpu: '#bada55',
+                    kopi: '#c0ffee',
+                },
+            },
+        },
+    };
+    </script>
+    <title>Belajar TailwindCSS</title>
+    
+</head>
+<body>
+    <h1 class="text-8xl font-bold text-center my-10">Mari Belajar <span class="bg-gradient-to-r from-blue-400 to-pink-300 bg-clip-text text-transparent">TailwindCSS</span></h1>
+
+    <section class="mb-10 bg-gradient-to-br from-indigo-200 via-pink-300 to bg-purple-400">
+        <h2 class="text-3xl text-center">Spacing</h2>
+        <div class="m-13">Margin</div>
+        <div class="py-8">Padding</div>
+    </section>
+
+    <section class="mb-10 bg-pink-200">
+        <h2 class="text-3xl text-center">Sizing</h2>
+        <div class="w-32 h-32 bg-kopi">Kotak 1</div>
+    </section>
+
+    <section class="font-inter max-w-3xl mx-auto">
+        <h2 class="mb-4 text-4xl font-bold">Belajar Mengenal Typography pada TailwindCSS</h2>
+        <div class="mb-4 text-lg text-gray-500 ">By <a href="#" class="text-gray-900 font-bold">Amanda Novalina</a>, 4 Maret 2025</div>
+        
+        <p class="mb-4">
+            Lorem <a href="#" class="underline font-semibold text-blue-700">ipsum</a> dolor sit amet consectetur adipisicing elit. Ipsum officia illum nostrum esse porro accusamus ad recusandae tempora. Minus voluptate tempore veritatis expedita. Nostrum reprehenderit quidem ipsa in ab! Eaque ea accusamus fuga quae eligendi mollitia. Recusandae sed fugiat aliquam omnis consectetur ut quos rerum, ea a neque, delectus consequatur.
+        </p>
+
+        <blockquote class="mb-4 italic font-thin text-xl">
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque error ad voluptas eos repellat voluptatum amet quaerat, velit nisi expedita?.""
+        </blockquote>
+
+        <p class="mb-4"> 
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nesciunt aliquid temporibus asperiores neque vitae deserunt assumenda adipisci rem suscipit, ullam fuga eligendi tempore ducimus, repudiandae non veniam consequatur fugit?
+        </p>
+    </section>
+
+    <div class="max-w-xl h-96 bg-[#bada55] mx-auto mt-[42px] overflow-y-scroll bg-fixed bg-cover bg-center" 
+    style="background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1600&q=80')">
+        <p class="p-5 text-2xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ab laudantium tempora doloribus eius, repellendus nulla sit ex cumque nam dolor eos vitae libero iure neque doloremque quas? Voluptate tempora fuga perferendis molestias, veritatis officia nihil esse rem distinctio incidunt laboriosam sit deserunt dignissimos voluptas aliquam debitis illo sint at quisquam! Maiores cupiditate, laboriosam ratione ea hic neque suscipit tempora praesentium nemo incidunt enim, a natus nobis distinctio totam reiciendis unde aperiam cumque est consectetur impedit nostrum necessitatibus, consequuntur quia! Dignissimos inventore porro sint alias cupiditate mollitia rem vitae sit deserunt nostrum, sequi, ab voluptate amet sed quisquam unde tempore blanditiis architecto dolores praesentium. Adipisci accusamus itaque cupiditate quidem ipsam doloribus. Ducimus iste doloribus magni provident ipsa similique fugiat aliquam corporis delectus officiis ipsam voluptatibus voluptatem accusantium in eos, optio, error quidem quo dolore quam ad? Voluptates voluptatem voluptate enim possimus ratione porro autem? Reiciendis facilis beatae perspiciatis fugit quam repellendus, ratione neque inventore dolore, quisquam error vero soluta. Voluptates, ipsum recusandae. Nihil atque velit minima id itaque, fuga nam dolore perferendis architecto voluptas labore alias nesciunt debitis aspernatur quibusdam ut saepe sint porro doloribus. Sequi omnis quaerat magnam illo eum soluta veniam dolor placeat rerum explicabo, quibusdam enim ratione.</p>
+    </div>
+
+    <div class="mt-32 max-w-xl mx-auto h-96 bg-slate-300 bg-contain bg-no-repeat bg-center rounded-2xl shadow-xl shadow-slate-500 overflow-auto border-8 flex"
+    style="background-image: url('img/2.jpg.jpg')">
+    <div class="w-[200px] h-[200px] bg-white/70 m-auto backdrop-blur-md rounded-full "></div>
+    </div>
+
+
+    <div class="mb-96"></div>
+
+</body>
+</html>
