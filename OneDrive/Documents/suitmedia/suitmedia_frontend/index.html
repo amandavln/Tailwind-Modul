@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideas - Suitmedia</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <img src="logo_suitmedia.png" alt="Suitmedia Logo" class="logo-image" />
+            </a>
+            <nav>
+                <ul class="nav">
+                    <li><a href="#" class="nav-link">Work</a></li>
+                    <li><a href="#" class="nav-link">About</a></li>
+                    <li><a href="#" class="nav-link">Services</a></li>
+                    <li><a href="#" class="nav-link active">Ideas</a></li>
+                    <li><a href="#" class="nav-link">Careers</a></li>
+                    <li><a href="#" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner" id="banner">
+        <div class="banner-background" id="bannerBg"></div>
+        <div class="banner-content">
+            <h1 class="banner-title">Ideas</h1>
+            <p class="banner-subtitle">Where all our great things begin</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Controls -->
+        <div class="controls">
+            <div class="pagination-info" id="paginationInfo">
+                Showing 1 - 10 of 100
+            </div>
+            <div class="control-group">
+                <div class="control-item">
+                    <label for="perPage">Show per page:</label>
+                    <select id="perPage">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+                <div class="control-item">
+                    <label for="sortBy">Sort by:</label>
+                    <select id="sortBy">
+                        <option value="-published_at">Newest</option>
+                        <option value="published_at">Oldest</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ideas Grid -->
+        <div class="ideas-grid" id="ideasGrid">
+            <!-- Ideas will be populated here -->
+        </div>
+
+        <!-- Loading -->
+        <div class="loading" id="loading" style="display: none;">
+            <div class="loading-spinner"></div>
+            <p>Loading ideas...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div class="error-message" id="errorMessage" style="display: none;">
+            <p>Failed to load ideas. Please try again.</p>
+            <button onclick="loadIdeas()">Retry</button>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+            <!-- Pagination will be populated here -->
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script>
+        // Function to load the data from the local JSON file
+        function loadIdeas() {
+            fetch('ideas.json') // Path to the ideas.json
+                .then(response => response.json())
+                .then(data => {
+                    renderIdeas(data);  // Pass data to the render function
+                })
+                .catch(error => {
+                    console.error('Error loading ideas:', error);
+                    document.getElementById('errorMessage').style.display = 'block';
+                    document.getElementById('loading').style.display = 'none';
+                });
+        }
+
+        // Function to render ideas in the grid
+        function renderIdeas(data) {
+            const grid = document.getElementById('ideasGrid');
+            grid.innerHTML = '';  // Clear the grid first
+
+            if (data && data.data && data.data.length > 0) {
+                data.data.forEach((idea) => {
+                    const card = document.createElement('div');
+                    card.className = 'idea-card';
+
+                    // Create the card content
+                    card.innerHTML = `
+                        <div class="card-content">
+                            <h3 class="card-title">${idea.title}</h3>
+                            <p class="card-description">${idea.content}</p>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            } else {
+                grid.innerHTML = '<div>No ideas found.</div>';
+            }
+        }
+
+        // Call loadIdeas when the page loads
+        window.onload = loadIdeas;
+
+        // Scroll Event for Header Hide/Show
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            const banner = document.getElementById('banner');
+            const bannerBg = document.getElementById('bannerBg');
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Header hide/show
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+                if (scrollTop > 50) {
+                    header.classList.add('transparent');
+                } else {
+                    header.classList.remove('transparent');
+                }
+            }
+
+            // Parallax effect for the banner
+            if (bannerBg && scrollTop < banner.offsetHeight) {
+                let parallaxSpeed = 0.5;
+                bannerBg.style.transform = `translateY(${scrollTop * parallaxSpeed}px)`;
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        });
+    </script>
+</body>
+</html>
